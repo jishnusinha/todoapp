@@ -1,0 +1,37 @@
+<div class="container">
+    <h4>get All the task</h4>
+<br>
+<br>
+<br>
+<div class="row" style="background-color: midnightblue; height: 50px;">
+   <h2 style="color: mintcream; text-align: center;">Color code based on priority</h2>
+    <div class="col" style="color: rgb(173, 14, 89);">High </div>
+    <div class="col" style="color: orange;">medium </div>
+    <div class="col" style="color: rgb(84, 179, 235)">low </div>
+
+</div>
+
+<div style=" margin-bottom: 50px;">
+    <a routerLink = "/add"><button class="btn btn-primary">Add New</button></a>
+
+</div>
+
+<div *ngFor = "let task of tasklist" [ngClass]="{
+    'alert alert-warning':task.priority === 'medium',
+    'alert alert-danger ':task.priority === 'high',
+    'alert alert-primary':task.priority === 'low'}">
+
+
+<div class="row" style="margin: 10px;">
+   <div class="col">{{task.name}}</div> 
+   <div class="col">{{task.date}}</div> 
+    <div class="col">{{task.time}}</div> 
+    <div class="col"><button class="btn btn-primary" (click) = "updatetask(task._id)">update</button> </div> 
+    <div class="col"><button class="btn btn-danger" (click) = "delettask(task._id)">delete</button></div> 
+
+</div>
+<br>
+</div>    
+
+    
+</div>

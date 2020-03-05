@@ -1,0 +1,36 @@
+<p> {{formData |json}} </p>
+
+<div class="container">
+    <form>
+        <div class="alert alert-success">
+          <label> Name</label>
+          <input type="text" required [(ngModel)] ="form.name" name ="cxx" #name= "ngModel" class="form-control"  placeholder="Enter name">
+          <div class="alert alert-danger" *ngIf="name.touched && !name.valid" >name is required</div>
+        </div>
+        <div class="alert alert-danger">
+            <label> priority</label>
+            <br>
+            <select [(ngModel)]= "form.priority" name="xfx">
+                <option *ngFor = "let y of priority" [value]="y"> {{y}}</option>
+            </select>
+          </div>
+          
+          <div class="alert alert-primary" role="alert">
+            <label> date</label> <br>
+            <input type="date" [(ngModel)]="form.date" name="xxb">
+          </div>   
+            
+          
+          <div class="alert alert-warning">
+            <label> Time</label><br>
+           
+            <input type="time" [(ngModel)]="form.time" name="time" atp-time-picker value="20:55"/>
+
+          </div>
+        <button type="submit" [disabled]="!addtaskForm.form.valid" class="btn btn-primary" (click) ="updateTask()">Submit</button>
+        </form>
+
+  
+        {{form|json}}
+        
+    </div>
